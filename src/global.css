@@ -1,0 +1,41 @@
+:root {
+  --bg-1: #f0f0f0;
+  --bg-2: #e0e0e0;
+  --white: #fff;
+  --text-header: #333333;
+  --text-primary: #000000e5;
+  --text-secondary: #555555;
+  --border: #dddddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Kanit", sans-serif;
+}
+
+body {
+  background-color: var(--bg-1);
+}
+
+.dark-mode {
+  background-color: #202020;
+  color: #ffff;
+}
+
+@media (max-width: 1502px) {
+  .responsive-header {
+    padding: 0 10px;
+  }
+
+  .responsive-searchBar {
+    padding: 0 10px;
+  }
+
+  .responsive-grid {
+    padding: 0 10px;
+  }
+}
