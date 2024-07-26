@@ -31,6 +31,7 @@ export const usePagination = (items: CardProps[], itemsPerPage: number) => {
   const changeCurrentPage = (n: number) => {
     if (n >= 1 && n <= totalPages) {
       setCurrentPage(n);
+      handleToTop();
     }
   };
 

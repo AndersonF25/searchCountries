@@ -18,8 +18,6 @@ const AboutCountry = ({
   region,
   subregion,
 }: CardProps) => {
-
-
   return (
     <Content key={numericCode}>
       <ContainerImg>
