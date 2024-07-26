@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
 import { apiURL } from "../../utils/api";
+import { Container, Label, Option, Select } from "./filter.style";
 
 type FilterProps = {
   getByRegion: (region: string) => void;
@@ -17,16 +18,16 @@ export default function Filter({ getByRegion, fetchCountries }: FilterProps) {
   };
 
   return (
-    <div>
-      <label htmlFor="continent">Filter by Continent:</label>
-      <select id="continent" onChange={selectHandler}>
-        <option value="all">All</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">Americas</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
-    </div>
+    <Container>
+      <Label htmlFor="continent">Filter by Continent :</Label>
+      <Select id="continent" onChange={selectHandler}>
+        <Option value="all">All</Option>
+        <Option value="Africa">Africa</Option>
+        <Option value="Americas">Americas</Option>
+        <Option value="Asia">Asia</Option>
+        <Option value="Europe">Europe</Option>
+        <Option value="Oceania">Oceania</Option>
+      </Select>
+    </Container>
   );
 }

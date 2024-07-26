@@ -18,10 +18,12 @@ const AboutCountry = ({
   region,
   subregion,
 }: CardProps) => {
+
+
   return (
     <Content key={numericCode}>
-      <ContainerImg >
-        <Img src={flags.svg}/>
+      <ContainerImg>
+        <Img src={flags.svg} />
       </ContainerImg>
       <ContainerText>
         <Country>{name.common}</Country>

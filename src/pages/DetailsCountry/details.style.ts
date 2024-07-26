@@ -6,6 +6,10 @@ export const Container = styled.section`
   display: grid;
   place-items: center;
   position: relative;
+
+  @media (max-width:1502px) {
+    padding: 0 10px;
+  }
 `;
 
 export const BtnBack = styled.button`

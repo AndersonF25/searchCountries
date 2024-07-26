@@ -13,7 +13,6 @@ type PaginationProps = {
 
 const Pagination = ({
   onNext,
-
   onPrev,
   currentPage,
   totalPages,

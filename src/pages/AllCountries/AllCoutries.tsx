@@ -58,6 +58,8 @@ export const AllCountries = () => {
     fetchCountries(`${apiURL}/region/${region}`);
   };
 
+ 
+
   return (
     <>
       <Container>
@@ -90,6 +92,7 @@ export const AllCountries = () => {
         </Grid>
         {!isSearching && (
           <Pagination
+           
             currentPage={currentPage}
             onNext={nextPage}
             onPrev={prevPage}
