@@ -28,8 +28,8 @@ export const useGetCountries = () => {
       }
       const data = await res.json();
       setCountries(data);
-      setIsSearching(url.includes("/name/") || url.includes("/region/"));
-      if (url.includes("/name/") || url.includes("/region/")) {
+      setIsSearching(url.includes("/name/"));
+      if (url.includes("/name/")) {
         changeCurrentPage(1);
       }
     } catch (error) {

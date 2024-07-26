@@ -5,7 +5,9 @@ export const usePagination = (items: CardProps[], itemsPerPage: number) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handleToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+   if(window.innerWidth <= 1340){
+     window.scrollTo({ top: 230, behavior: "smooth" });
+   }
   };
 
   const totalPages = Math.ceil(items?.length / itemsPerPage);
