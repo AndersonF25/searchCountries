@@ -19,7 +19,7 @@ export default function Filter({ getByRegion, fetchCountries }: FilterProps) {
 
   return (
     <Container>
-      <Label htmlFor="continent">Filter by Continent :</Label>
+      <Label htmlFor="continent">Filter by:</Label>
       <Select id="continent" onChange={selectHandler}>
         <Option value="all">All</Option>
         <Option value="Africa">Africa</Option>
