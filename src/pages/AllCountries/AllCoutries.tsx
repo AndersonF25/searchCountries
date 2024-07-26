@@ -14,6 +14,16 @@ export const AllCountries = () => {
   const [countries, setCountries] = useState<CardProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+
+  const {
+    changeCurrentPage,
+    currentItems,
+    currentPage,
+    nextPage,
+    prevPage,
+    totalPages,
+  } = usePagination(countries, 8);
 
   const fetchCountries = async (url: string) => {
     setIsLoading(true);
@@ -25,6 +35,10 @@ export const AllCountries = () => {
       }
       const data = await res.json();
       setCountries(data);
+      setIsSearching(url.includes("/name/") || url.includes("/region/"));
+      if (url.includes("/name/") || url.includes("/region/")) {
+        changeCurrentPage(1);
+      }
     } catch (error) {
       setError("Verifique se o nome do país esta correto.");
     } finally {
@@ -44,15 +58,6 @@ export const AllCountries = () => {
     fetchCountries(`${apiURL}/region/${region}`);
   };
 
-  const {
-    changeCurrentPage,
-    currentItems,
-    currentPage,
-    nextPage,
-    prevPage,
-    totalPages,
-  } = usePagination(countries, 8);
-
   return (
     <>
       <Container>
@@ -68,7 +73,10 @@ export const AllCountries = () => {
         {error && <p>{error}</p>}
         <Grid className="responsive-grid">
           {currentItems?.map((country) => (
-            <Link to={`/country/${country.name.common}`}>
+            <Link
+              key={country.name.common}
+              to={`/country/${country.name.common}`}
+            >
               <Card
                 numericCode={country.numericCode}
                 capital={country.capital}
@@ -80,13 +88,15 @@ export const AllCountries = () => {
             </Link>
           ))}
         </Grid>
-        <Pagination
-          currentPage={currentPage}
-          onNext={nextPage}
-          onPrev={prevPage}
-          onPageChange={changeCurrentPage}
-          totalPages={totalPages}
-        />
+        {!isSearching && (
+          <Pagination
+            currentPage={currentPage}
+            onNext={nextPage}
+            onPrev={prevPage}
+            onPageChange={changeCurrentPage}
+            totalPages={totalPages}
+          />
+        )}
       </Container>
     </>
   );
