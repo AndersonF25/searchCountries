@@ -8,6 +8,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
+
   @media (max-width: 1000px) {
     flex-direction: column;
     margin-top: 130px;

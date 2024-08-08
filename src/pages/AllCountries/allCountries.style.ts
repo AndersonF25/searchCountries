@@ -7,6 +7,7 @@ export const Container = styled.section`
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+
   gap: 50px;
 `;
 
